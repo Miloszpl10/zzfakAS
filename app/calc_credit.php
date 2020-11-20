@@ -6,19 +6,25 @@ require_once dirname(__FILE__).'/../config.php';
 // Wysłaniem odpowiedzi zajmie się odpowiedni widok.
 // Parametry do widoku przekazujemy przez zmienne.
 
-// 1. pobranie parametrów
+//ochrona kontrolera - poniższy skrypt przerwie przetwarzanie w tym punkcie gdy użytkownik jest niezalogowany
+include _ROOT_PATH.'/app/security/check.php';
 
-$x = $_REQUEST ['x'];
-$y = $_REQUEST ['y'];
-$percent = $_REQUEST ['z'];
+//pobranie parametrów
+function getParams(&$x,&$y,&$percent){
+	$x = isset($_REQUEST['x']) ? $_REQUEST['x'] : null;
+	$y = isset($_REQUEST['y']) ? $_REQUEST['y'] : null;
+	$percent = isset($_REQUEST['z']) ? $_REQUEST['z'] : null;
+}
 
 // 2. walidacja parametrów z przygotowaniem zmiennych dla widoku
 
-// sprawdzenie, czy parametry zostały przekazane
-if ( ! (isset($x) && isset($y) && isset($percent))) {
-	//sytuacja wystąpi kiedy np. kontroler zostanie wywołany bezpośrednio - nie z formularza
-	$messages [] = 'Błędne wywołanie aplikacji. Brak jednego z parametrów.';
-}
+function validate(&$x,&$y,&$percent,&$messages){
+	// sprawdzenie, czy parametry zostały przekazane
+	if ( ! (isset($x) && isset($y) && isset($percent))) {
+		// sytuacja wystąpi kiedy np. kontroler zostanie wywołany bezpośrednio - nie z formularza
+		// teraz zakładamy, ze nie jest to błąd. Po prostu nie wykonamy obliczeń
+		return false;
+	}
 
 // sprawdzenie, czy potrzebne wartości zostały przekazane
 if ( $x == "") {
@@ -31,20 +37,50 @@ if ( $percent == "") {
 	$messages [] = 'Nie podano jakie jest oprocentowanie';
 }
 
+//nie ma sensu walidować dalej gdy brak parametrów
+	if (count ( $messages ) != 0) return false;
+	else return true;
+}
 
-// 3. wykonaj zadanie jeśli wszystko w porządku
 
-if (empty ( $messages )) { // gdy brak błędów
-
-    //zmiana lat na miesiace i wyliczenie raty bez procentu
+function process(&$x,&$y,&$percent,&$messages,&$result){
+	global $role;
     $months = $y * 12;
     $installment = $x / $months;
 
+switch ($percent) {
+		case $percent<3 :
+			if ($role == 'admin'){
+				$result = ($installment * ($percent / 100)) + $installment;
+			} else {
+				$messages [] = 'Tylko administrator może miec takie male odsetki !';
+			}
+			break;
+		default :
+			$result = ($installment * ($percent / 100)) + $installment;
+			break;
+	}
+
     //Obliczenie raty kredytu
     $result = ($installment * ($percent / 100)) + $installment;
+
+}
+
+//definicja zmiennych kontrolera
+$x = null;
+$y = null;
+$percent = null;
+$result = null;
+$messages = array();
+
+//pobierz parametry i wykonaj zadanie jeśli wszystko w porządku
+getParams($x,$y,$percent);
+if ( validate($x,$y,$percent,$messages) ) { // gdy brak błędów
+	process($x,$y,$percent,$messages,$result);
 }
 
 // 4. Wywołanie widoku z przekazaniem zmiennych
 // - zainicjowane zmienne ($messages,$x,$y,$percent,$result)
 //   będą dostępne w dołączonym skrypcie
+
 include 'calc_credit_view.php';

@@ -1,20 +1,34 @@
-<?php require_once dirname(__FILE__) .'/../config.php';?>
+<?php
+//require_once dirname(__FILE__) .'/../config.php';
+?>
+
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
 <head>
-<meta charset="utf-8" />
-<title>Kalkulator</title>
+    <meta charset="utf-8" />
+    <title>Kalkulator</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 </head>
 <body>
 
-<form action="<?php print(_APP_URL);?>/app/calc_credit.php" method="post">
+<div style="width:90%; margin: 2em auto;">
+	<a href="<?php print(_APP_ROOT); ?>/app/inna_chroniona.php" class="pure-button">kolejna chroniona strona</a>
+	<a href="<?php print(_APP_ROOT); ?>/app/security/logout.php" class="pure-button pure-button-active">Wyloguj</a>
+</div>
+
+<div style="width:90%; margin: 2em auto;">
+
+<form action="<?php print(_APP_ROOT);?>/app/calc_credit.php" method="post" class="pure-form pure-form-stacked">
+	<legend>Kalkulator</legend>
+	<fieldset>
 	<label for="id_x">Kwota kredytu: </label>
 	<input id="id_x" type="number" min="0" name="x" value="<?php if(isset($x)) print($x); ?>" placeholder='10000' /><br />
 	<label for="id_y">Na ile lat: </label>
 	<input id="id_y" type="number" min="0" name="y" value="<?php if(isset($y)) print($y); ?>" placeholder='5' /><br />
 	<label for="id_z">Oprocentowanie: </label>
     <input id="id_z" type="number" min="0" step="0.01" name="z" value="<?php if(isset($percent)) print($percent); ?>" placeholder='3.3' /><br />
-	<input type="submit" value="Oblicz" />
+	</fieldset>
+	<input type="submit" value="Oblicz" class="pure-button pure-button-primary" />
 </form>	
 
 <?php
@@ -30,9 +44,10 @@ if (isset($messages)) {
 }
 ?>
 <?php if (isset($result)){ ?>
-<div style="margin: 20px; padding: 10px; border-radius: 5px; background-color: #aaff00; width:300px;">
+<div style="margin-top: 1em; padding: 1em; border-radius: 0.5em; background-color: #ff0; width:25em;">
 <?php echo 'Miesięczna rata będzie wynosić: '.round($result, 2).'zł'; ?>
 </div>
 <?php } ?>
+</div>
 </body>
 </html>

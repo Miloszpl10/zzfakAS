@@ -6,7 +6,7 @@
 <title>Kalkulator</title>
 </head>
 <body>
-//cw1
+
 <form action="<?php print(_APP_URL);?>/app/calc_credit.php" method="post">
 	<label for="id_x">Kwota kredytu: </label>
 	<input id="id_x" type="number" min="0" name="x" value="<?php if(isset($x)) print($x); ?>" placeholder='10000' /><br />

@@ -11,4 +11,4 @@ git log 0283bdd
 Version 2.0
 Cwiczenie nr.2, ochrona strony poprzez haslo
 Brak optymalizacji, wszystko dziala
-git log 
+git log 1ced7cc

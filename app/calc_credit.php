@@ -1,7 +1,7 @@
 <?php
 // KONTROLER strony kalkulatora
 require_once dirname(__FILE__).'/../config.php';
-
+//cw1
 // W kontrolerze niczego nie wysyła się do klienta.
 // Wysłaniem odpowiedzi zajmie się odpowiedni widok.
 // Parametry do widoku przekazujemy przez zmienne.

@@ -17,5 +17,5 @@ git log 1ced7cc
 
 Version 3.0
 Cwiczenie nr.3,
-Wprowadzenie lepszego widoku
-git log 
+Wprowadzenie lepszego widoku, wersja uproszczona
+git log 83a08fa

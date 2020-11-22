@@ -14,11 +14,11 @@ include _ROOT_PATH.'/templates/top.php';
 	<legend>Kalkulator</legend>
 	<fieldset>
 	<label for="id_x">Kwota kredytu: </label>
-	<input id="id_x" type="number" min="0" name="x" value="<?php if(isset($x)) print($x); ?>"  placeholder="10000" /><br />
+	<input id="id_x" type="number" min="0" name="x" value="<?php if(isset($x)) print($x); ?>"  placeholder="10000" />
 	<label for="id_y">Na ile lat: </label>
-	<input id="id_y" type="number" min="0" name="y" value="<?php if(isset($y)) print($y); ?>"  placeholder='5' /><br />
+	<input id="id_y" type="number" min="0" name="y" value="<?php if(isset($y)) print($y); ?>"  placeholder='5' />
 	<label for="id_z">Oprocentowanie: </label>
-    <input id="id_z" type="number" min="0" step="0.01" name="z" value="<?php if(isset($percent)) print($percent); ?>"  placeholder='3.3' /><br />
+    <input id="id_z" type="number" min="0" step="0.01" name="z" value="<?php if(isset($percent)) print($percent); ?>"  placeholder='3.3' />
 	</fieldset>
 	<input type="submit" value="Oblicz" class="pure-button pure-button-primary" />
 </form>	

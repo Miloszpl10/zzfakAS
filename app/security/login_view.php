@@ -1,11 +1,11 @@
-<!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
-<head>
-	<meta charset="utf-8" />
-	<title>Logowanie</title>
-	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-</head>
-<body>
+<?php
+
+$page_title = 'Logowanie';
+$page_description = 'Proszę o zalogowanie się';
+$page_header = '';
+$page_footer = 'przykładowa tresć stopki wpisana do szablonu z kontrolera';
+include _ROOT_PATH.'/templates/top.php';
+?>
 
 <div style="width:90%; margin: 2em auto;">
 
@@ -35,5 +35,6 @@ if (isset($messages)) {
 
 </div>
 
-</body>
-</html>
+<?php
+include _ROOT_PATH.'/templates/bottom.php';
+?>

@@ -1,32 +1,24 @@
 <?php
 //require_once dirname(__FILE__) .'/../config.php';
+include _ROOT_PATH.'/templates/top.php';
 ?>
 
-<!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
-<head>
-    <meta charset="utf-8" />
-    <title>Kalkulator</title>
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-</head>
-<body>
+	<div style="margin: 0.5em auto;">
+        	<a href="<?php print(_APP_ROOT); ?>/app/inna_chroniona.php" class="pure-button">kolejna chroniona strona</a>
+        	<a href="<?php print(_APP_ROOT); ?>/app/security/logout.php" class="pure-button pure-button-active">Wyloguj</a>
+        </div>
 
-<div style="width:90%; margin: 2em auto;">
-	<a href="<?php print(_APP_ROOT); ?>/app/inna_chroniona.php" class="pure-button">kolejna chroniona strona</a>
-	<a href="<?php print(_APP_ROOT); ?>/app/security/logout.php" class="pure-button pure-button-active">Wyloguj</a>
-</div>
-
-<div style="width:90%; margin: 2em auto;">
+<h3>Prosty kalkulator</h2>
 
 <form action="<?php print(_APP_ROOT);?>/app/calc_credit.php" method="post" class="pure-form pure-form-stacked">
 	<legend>Kalkulator</legend>
 	<fieldset>
 	<label for="id_x">Kwota kredytu: </label>
-	<input id="id_x" type="number" min="0" name="x" value="<?php if(isset($x)) print($x); ?>" placeholder='10000' /><br />
+	<input id="id_x" type="number" min="0" name="x" value="<?php if(isset($x)) print($x); ?>"  placeholder="10000" /><br />
 	<label for="id_y">Na ile lat: </label>
-	<input id="id_y" type="number" min="0" name="y" value="<?php if(isset($y)) print($y); ?>" placeholder='5' /><br />
+	<input id="id_y" type="number" min="0" name="y" value="<?php if(isset($y)) print($y); ?>"  placeholder='5' /><br />
 	<label for="id_z">Oprocentowanie: </label>
-    <input id="id_z" type="number" min="0" step="0.01" name="z" value="<?php if(isset($percent)) print($percent); ?>" placeholder='3.3' /><br />
+    <input id="id_z" type="number" min="0" step="0.01" name="z" value="<?php if(isset($percent)) print($percent); ?>"  placeholder='3.3' /><br />
 	</fieldset>
 	<input type="submit" value="Oblicz" class="pure-button pure-button-primary" />
 </form>	
@@ -48,6 +40,7 @@ if (isset($messages)) {
 <?php echo 'Miesięczna rata będzie wynosić: '.round($result, 2).'zł'; ?>
 </div>
 <?php } ?>
-</div>
-</body>
-</html>
+
+<?php //dół strony z szablonu
+include _ROOT_PATH.'/templates/bottom.php';
+?>

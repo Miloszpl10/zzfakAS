@@ -83,4 +83,10 @@ if ( validate($x,$y,$percent,$messages) ) { // gdy brak błędów
 // - zainicjowane zmienne ($messages,$x,$y,$percent,$result)
 //   będą dostępne w dołączonym skrypcie
 
+//Wywołanie widoku, wcześniej ustalenie zawartości zmiennych elementów szablonu
+$page_title = 'Kalkulator kredytowy';
+$page_description = 'Najprostsze szablonowanie oparte na budowaniu widoku poprzez dołączanie kolejnych części HTML zdefiniowanych w różnych plikach .php';
+$page_header = 'Proste szablony';
+$page_footer = 'przykładowa tresć stopki wpisana do szablonu z kontrolera';
+
 include 'calc_credit_view.php';

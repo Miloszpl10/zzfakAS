@@ -7,7 +7,7 @@ require_once dirname(__FILE__).'/../config.php';
 // Parametry do widoku przekazujemy przez zmienne.
 
 //ochrona kontrolera - poniższy skrypt przerwie przetwarzanie w tym punkcie gdy użytkownik jest niezalogowany
-include _ROOT_PATH.'/app/security/check.php';
+
 
 //pobranie parametrów
 function getParams(&$x,&$y,&$percent){

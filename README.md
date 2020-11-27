@@ -19,3 +19,13 @@ Version 3.0
 Cwiczenie nr.3,
 Wprowadzenie lepszego widoku, wersja uproszczona
 git log 83a08fa
+
+Version 3.1
+Cwiczenie nr.3,
+Poprawka graficzna przy formularzu
+git log 84b82e0
+
+Version 4.0
+Cwiczenie nr.4,
+Nowy ładniejszy układ graficzny
+git log 

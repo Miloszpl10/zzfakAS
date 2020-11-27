@@ -28,4 +28,4 @@ git log 84b82e0
 Version 4.0
 Cwiczenie nr.4,
 Nowy ładniejszy układ graficzny
-git log 
+git log a58a6a0

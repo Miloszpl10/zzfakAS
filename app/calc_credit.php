@@ -1,6 +1,8 @@
 <?php
 // KONTROLER strony kalkulatora
 require_once dirname(__FILE__).'/../config.php';
+//załaduj Smarty
+require_once _ROOT_PATH.'/lib/smarty/Smarty.class.php';
 
 // W kontrolerze niczego nie wysyła się do klienta.
 // Wysłaniem odpowiedzi zajmie się odpowiedni widok.
@@ -84,9 +86,33 @@ if ( validate($x,$y,$percent,$messages) ) { // gdy brak błędów
 //   będą dostępne w dołączonym skrypcie
 
 //Wywołanie widoku, wcześniej ustalenie zawartości zmiennych elementów szablonu
-$page_title = 'Kalkulator kredytowy';
+/*$page_title = 'Kalkulator kredytowy';
 $page_description = 'Najprostsze szablonowanie oparte na budowaniu widoku poprzez dołączanie kolejnych części HTML zdefiniowanych w różnych plikach .php';
 $page_header = 'Proste szablony';
 $page_footer = 'przykładowa tresć stopki wpisana do szablonu z kontrolera';
 
 include 'calc_credit_view.php';
+*/
+
+// 4. Przygotowanie danych dla szablonu
+
+$smarty = new Smarty();
+
+$smarty->assign('app_url',_APP_URL);
+$smarty->assign('root_path',_ROOT_PATH);
+$smarty->assign('page_title','Kalkulator kredytowy');
+$smarty->assign('page_description','Profesjonalne szablonowanie oparte na bibliotece Smarty');
+$smarty->assign('page_header','Szablony Smarty');
+
+$smarty->assign('hide_intro',$hide_intro);
+
+//pozostałe zmienne niekoniecznie muszą istnieć, dlatego sprawdzamy aby nie otrzymać ostrzeżenia
+$smarty->assign('x',$x);
+$smarty->assign('y',$y);
+$smarty->assign('percent',$percent);
+$smarty->assign('result',$result);
+$smarty->assign('messages',$messages);
+//$smarty->assign('infos',$infos);
+
+// 5. Wywołanie szablonu
+$smarty->display(_ROOT_PATH.'/app/calc.html');

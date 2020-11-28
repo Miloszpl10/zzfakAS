@@ -29,3 +29,7 @@ Version 4.0
 Cwiczenie nr.4,
 Nowy ładniejszy układ graficzny
 git log a58a6a0
+
+Version 4.5
+Cwiczenie nr.4,
+Uzywanie biblioteki smart

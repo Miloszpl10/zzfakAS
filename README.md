@@ -33,3 +33,4 @@ git log a58a6a0
 Version 4.5
 Cwiczenie nr.4,
 Uzywanie biblioteki smart
+git log 1637f7f

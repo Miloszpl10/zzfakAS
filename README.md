@@ -38,4 +38,4 @@ git log 1637f7f
 Version 5.0
 Cwiczenie nr 5,
 Użycie klas, obiektowość
-git log 
+git log 161db43

@@ -5,10 +5,11 @@
  * @package    Smarty
  * @subpackage PluginsModifierCompiler
  */
+
 /**
  * Smarty lower modifier plugin
- * Type:     modifier
- * Name:     lower
+ * Type:     modifier<br>
+ * Name:     lower<br>
  * Purpose:  convert string to lowercase
  *
  * @link   http://www.smarty.net/manual/en/language.modifier.lower.php lower (Smarty online manual)
@@ -19,6 +20,7 @@
  *
  * @return string with compiled code
  */
+
 function smarty_modifiercompiler_lower($params)
 {
     if (Smarty::$_MBSTRING) {

@@ -10,29 +10,28 @@
 	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure.css">
 
     <!--[if lte IE 8]>
-    <link rel="stylesheet" href="{$app_url}/css/main-grid-old-ie.css">
+        <link rel="stylesheet" href="{$conf->app_url}/css/main-grid-old-ie.css">
     <![endif]-->
     <!--[if gt IE 8]><!-->
-    <link rel="stylesheet" href="{$app_url}/css/main-grid.css">
+        <link rel="stylesheet" href="{$conf->app_url}/css/main-grid.css">
     <!--<![endif]-->
-
+  
     <!--[if lte IE 8]>
-    <link rel="stylesheet" href="{$app_url}/css/layouts/marketing-old-ie.css">
+        <link rel="stylesheet" href="{$conf->app_url}/css/layouts/marketing-old-ie.css">
     <![endif]-->
     <!--[if gt IE 8]><!-->
-    <link rel="stylesheet" href="{$app_url}/css/layouts/marketing.css">
+        <link rel="stylesheet" href="{$conf->app_url}/css/layouts/marketing.css">
     <!--<![endif]-->
 
-    <link rel="stylesheet" href="{$app_url}/css/style.css">
-    {if $hide_intro }
-    <link rel="stylesheet" href="{$app_url}/css/style_hide_intro.css">
+    <link rel="stylesheet" href="{$conf->app_url}/css/style.css">
+{if $hide_intro }
+    <link rel="stylesheet" href="{$conf->app_url}/css/style_hide_intro.css">
 {/if}
 	
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 
-	<script src="{$app_url}/js/jquery.min.js"></script>
-	<script src="{$app_url}/js/softscroll.js"></script>
-
+	<script src="{$conf->app_url}/js/jquery.min.js"></script>
+	<script src="{$conf->app_url}/js/softscroll.js"></script>
 </head>
 <body>
 
@@ -48,9 +47,9 @@
 
 <div class="splash-container">
     <div class="splash">
-        <h1 class="splash-head">{$page_title|default:"Testowy szablon"}</h1>
+        <h1 class="splash-head">{$page_title|default:"Tytuł domyślny"}</h1>
         <p class="splash-subhead">
-             {$page_description|default:" Póki co wszystko działa."}
+             {$page_description|default:"Opis domyślny"}
         </p>
         <p>
             <a href="#app_content" class="pure-button pure-button-primary">Idź do formularza</a>
@@ -66,8 +65,7 @@
 
     </div>
 
-
-    <div class="footer 1-box is-center">
+    <div class="footer l-box is-center">
 		<p>
 {block name=footer} Domyślna treść stopki .... {/block}
 		</p>

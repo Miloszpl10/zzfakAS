@@ -1,16 +1,8 @@
 <?php
-// W skrypcie definicji kontrolera nie trzeba dołączać problematycznego skryptu config.php,
-// ponieważ będzie on użyty w miejscach, gdzie config.php zostanie już wywołany.
+require_once 'CalcForm.class.php';
+require_once 'CalcResult.class.php';
 
-require_once $conf->root_path.'/lib/smarty/Smarty.class.php';
-require_once $conf->root_path.'/lib/Messages.class.php';
-require_once $conf->root_path.'/app/calc/CalcForm.class.php';
-require_once $conf->root_path.'/app/calc/CalcResult.class.php';
 
-/** Kontroler kalkulatora
- * @author Przemysław Kudłacik
- *
- */
 class CalcCtrl {
 
 	private $msgs;   //wiadomości dla widoku
@@ -114,21 +106,21 @@ class CalcCtrl {
 	 * Wygenerowanie widoku
 	 */
 	public function generateView(){
-		global $conf;
+		//global $conf;
 		
-		$smarty = new Smarty();
-		$smarty->assign('conf',$conf);
+		//$smarty = new Smarty();
+		//$smarty->assign('conf',$conf);
 		
-		$smarty->assign('page_title','Kalkulator kredytowy');
-		$smarty->assign('page_description','Profesjonalne szablonowanie oparte na bibliotece Smarty.');
-		$smarty->assign('page_header','Szablony Smarty');
+		getSmarty()->assign('page_title','Kalkulator kredytowy');
+		getSmarty()->assign('page_description','Profesjonalne szablonowanie oparte na bibliotece Smarty.');
+		getSmarty()->assign('page_header','Szablony Smarty');
 				
-		$smarty->assign('hide_intro',$this->hide_intro);
+		getSmarty()->assign('hide_intro',$this->hide_intro);
 		
-		$smarty->assign('msgs',$this->msgs);
-		$smarty->assign('form',$this->form);
-		$smarty->assign('res',$this->result);
+		getSmarty()->assign('msgs',$this->msgs);
+		getSmarty()->assign('form',$this->form);
+		getSmarty()->assign('res',$this->result);
 		
-		$smarty->display($conf->root_path.'/app/calc/CalcView.html');
+		getSmarty()->display('CalcView.html');
 	}
 }

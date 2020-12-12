@@ -37,5 +37,9 @@ git log 1637f7f
 
 Version 5.0
 Cwiczenie nr 5,
-Użycie klas, obiektowość
+Użycie klas, obiektowość,kontroler
 git log 161db43
+
+Version 6.0 nr 6,
+Nowa struktura
+git log 

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-12-11 18:35:55
-  from "F:\Programy i Uczelnia\XAMPP\htdocs\php_06_kontroler_glowny\templates\main.html" */
+/* Smarty version 3.1.30, created on 2020-12-12 12:15:46
+  from "F:\Programy i Uczelnia\XAMPP\htdocs\php_01_credit\app\views\templates\main.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5fd3adfb88e6a8_77865991',
+  'unifunc' => 'content_5fd4a662ab8ca8_24007688',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '383171c955068fd60747dd1105ea5769ec614359' => 
+    '71a686a55e9f0e9a3c24cafbd153c3ca467edb3c' => 
     array (
-      0 => 'F:\\Programy i Uczelnia\\XAMPP\\htdocs\\php_06_kontroler_glowny\\templates\\main.html',
-      1 => 1607704544,
+      0 => 'F:\\Programy i Uczelnia\\XAMPP\\htdocs\\php_01_credit\\app\\views\\templates\\main.html',
+      1 => 1607709546,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5fd3adfb88e6a8_77865991 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fd4a662ab8ca8_24007688 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -80,7 +80,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
         <a class="pure-menu-heading" href=""><?php echo (($tmp = @$_smarty_tpl->tpl_vars['page_title']->value)===null||$tmp==='' ? "Tytuł domyślny" : $tmp);?>
 </a>
         <ul>
-            <li class="pure-menu-selected"><a href="#app_top">Góra strony</a></li>
+            <li class="pure-menu-selected"><a href="#app_top">Home</a></li>
             <li><a href="#app_content">Idź do formularza</a></li>
         </ul>
     </div>
@@ -105,7 +105,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
     <div id="app_content" class="content">
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12167427525fd3adfb88db65_65118468', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14233730955fd4a662ab4f30_25603028', 'content');
 ?>
 
 
@@ -114,11 +114,10 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12167427525fd3adfb
     <div class="footer l-box is-center">
 		<p>
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_416502355fd3adfb88e290_16482650', 'footer');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_6177569385fd4a662ab74f5_65377421', 'footer');
 ?>
 
 		</p>
-        <p>Widok oparty na stylach i szablonie <a href="http://purecss.io/" target="_blank">Pure CSS Yahoo!</a>. (autor przykładu: Przemysław Kudłacik)</p>
     </div>
 
 </div>
@@ -128,7 +127,7 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_416502355fd3adfb88
 </html>
 <?php }
 /* {block 'content'} */
-class Block_12167427525fd3adfb88db65_65118468 extends Smarty_Internal_Block
+class Block_14233730955fd4a662ab4f30_25603028 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -137,7 +136,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'content'} */
 /* {block 'footer'} */
-class Block_416502355fd3adfb88e290_16482650 extends Smarty_Internal_Block
+class Block_6177569385fd4a662ab74f5_65377421 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>

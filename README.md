@@ -42,4 +42,4 @@ git log 161db43
 
 Version 6.0 nr 6,
 Nowa struktura
-git log 
+git log 1b4409c

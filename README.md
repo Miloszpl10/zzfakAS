@@ -54,4 +54,4 @@ git log e2baada
 
 Version 7.3 nr 7b,
 Ochrona zasobów zautomatyzowane
-git log 
+git log 304e6d5

@@ -104,15 +104,11 @@ class CalcCtrl {
 	 * Wygenerowanie widoku
 	 */
 	public function generateView(){
-		//global $conf;
-		
-		//$smarty = new Smarty();
-		//$smarty->assign('conf',$conf);
-		
-		getSmarty()->assign('page_title','Kalkulator kredytowy');
-		getSmarty()->assign('page_description','Profesjonalne szablonowanie oparte na bibliotece Smarty.');
-		getSmarty()->assign('page_header','Szablony Smarty');
+		global $user;
 
+		getSmarty()->assign('user',$user);
+
+		getSmarty()->assign('page_title','Super kalkulator');
 
 		getSmarty()->assign('form',$this->form);
 		getSmarty()->assign('res',$this->result);

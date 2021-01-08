@@ -15,7 +15,7 @@
     <!--[if gt IE 8]><!-->
         <link rel="stylesheet" href="{$conf->app_url}/css/main-grid.css">
     <!--<![endif]-->
-  
+
     <!--[if lte IE 8]>
         <link rel="stylesheet" href="{$conf->app_url}/css/layouts/marketing-old-ie.css">
     <![endif]-->
@@ -27,7 +27,7 @@
 {if $hide_intro }
     <link rel="stylesheet" href="{$conf->app_url}/css/style_hide_intro.css">
 {/if}
-	
+
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 
 	<script src="{$conf->app_url}/js/jquery.min.js"></script>

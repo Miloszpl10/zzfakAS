@@ -8,23 +8,32 @@ require_once 'init.php';
 
 //2. wykonanie akcji
 switch ($action) {
-	default : // 'calcView'
-		// utwórz obiekt i uzyj
-		// (autoloader sam załaduje plik na podstawie przestrzeni nazw względem folderu głównego aplikacji)
+	default : // 'calcView'  // akcja NIEPUBLICZNA
+		include 'check.php'; // KONTROLA
 		$ctrl = new app\controllers\CalcCtrl();
 		$ctrl->generateView ();
 	break;
-	case 'calcCompute' :
-		// utwórz obiekt i uzyj
+	case 'login': // akcja PUBLICZNA - brak check.php
+		$ctrl = new app\controllers\LoginCtrl();
+		$ctrl->doLogin();
+	break;
+	case 'calcCompute' : // akcja NIEPUBLICZNA
+		include 'check.php';  // KONTROLA
 		$ctrl = new app\controllers\CalcCtrl();
 		$ctrl->process ();
 	break;
-	case 'action1' :
-		// zrób coś innego ...
-		print('hello');
+	case 'logout' : // akcja NIEPUBLICZNA
+		include 'check.php';  // KONTROLA
+		$ctrl = new app\controllers\LoginCtrl();
+		$ctrl->doLogout();
 	break;
-	case 'action2' :
-		// zrób coś innego ...
-		print('goodbye');
+	case 'action1' : // akcja PUBLICZNA - brak check.php
+		// zrób coś innego publicznego ...
+		print('reakcja na akcję publiczną ....');
+	break;
+	case 'action2': // akcja NIEPUBLICZNA
+		include 'check.php';  // KONTROLA
+		// zrób coś innego wymagającego logowania ...
+		print('reakcja na akcję niepubliczną ....');
 	break;
 }

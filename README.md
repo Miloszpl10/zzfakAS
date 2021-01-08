@@ -46,4 +46,4 @@ git log 1b4409c
 
 Version 6.5 nr 6b,
 Przestrzenie nazw 
-git log 
+git log 1f82522

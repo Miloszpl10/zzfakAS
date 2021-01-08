@@ -1,34 +1,32 @@
 <?php
-require_once 'CalcForm.class.php';
-require_once 'CalcResult.class.php';
 
+// Przypominam, że tu również są dostępne globalne funkcje pomocnicze - o to nam właściwie chodziło
+namespace app\controllers;
+//zamieniamy zatem 'require' na 'use' wskazując jedynie przestrzeń nazw, w której znajduje się klasa
+
+use app\forms\CalcForm;
+use app\transfer\CalcResult;
 
 class CalcCtrl {
 
-	private $msgs;   //wiadomości dla widoku
-	private $infos;  //informacje dla widoku
 	private $form;   //dane formularza (do obliczeń i dla widoku)
 	private $result; //inne dane dla widoku
-	private $hide_intro; //zmienna informująca o tym czy schować intro
-
 	/** 
 	 * Konstruktor - inicjalizacja właściwości
 	 */
 	public function __construct(){
 		//stworzenie potrzebnych obiektów
-		$this->msgs = new Messages();
 		$this->form = new CalcForm();
 		$this->result = new CalcResult();
-		$this->hide_intro = false;
 	}
 	
 	/** 
 	 * Pobranie parametrów
 	 */
 	public function getParams(){
-		$this->form->x = isset($_REQUEST ['x']) ? $_REQUEST ['x'] : null;
-		$this->form->y = isset($_REQUEST ['y']) ? $_REQUEST ['y'] : null;
-		$this->form->percent = isset($_REQUEST ['percent']) ? $_REQUEST ['percent'] : null;
+		$this->form->x = getFromRequest('x');
+		$this->form->y = getFromRequest('y');
+		$this->form->op = getFromRequest('op');
 	}
 	
 	/** 
@@ -114,13 +112,11 @@ class CalcCtrl {
 		getSmarty()->assign('page_title','Kalkulator kredytowy');
 		getSmarty()->assign('page_description','Profesjonalne szablonowanie oparte na bibliotece Smarty.');
 		getSmarty()->assign('page_header','Szablony Smarty');
-				
-		getSmarty()->assign('hide_intro',$this->hide_intro);
-		
-		getSmarty()->assign('msgs',$this->msgs);
+
+
 		getSmarty()->assign('form',$this->form);
 		getSmarty()->assign('res',$this->result);
 		
-		getSmarty()->display('CalcView.html');
+		getSmarty()->display('CalcView.tpl');
 	}
 }

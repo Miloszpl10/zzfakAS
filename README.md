@@ -43,3 +43,7 @@ git log 161db43
 Version 6.0 nr 6,
 Nowa struktura
 git log 1b4409c
+
+Version 6.5 nr 6b,
+Przestrzenie nazw 
+git log 

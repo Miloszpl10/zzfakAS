@@ -1,4 +1,4 @@
-{extends file="main.html"}
+{extends file="main.tpl"}
 {* przy zdefiniowanych folderach nie trzeba już podawać pełnej ścieżki *}
 
 {block name=footer}przykładowa tresć stopki wpisana do szablonu głównego z szablonu kalkulatora{/block}

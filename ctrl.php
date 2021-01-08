@@ -7,33 +7,16 @@ require_once 'init.php';
 //1. pobierz nazwę akcji
 
 //2. wykonanie akcji
+getConf()->login_action = 'login'; //określenie akcji logowania - robimy to w tym miejscu, ponieważ tu są zdefiniowane wszystkie akcje
+
 switch ($action) {
-	default : // 'calcView'  // akcja NIEPUBLICZNA
-		include 'check.php'; // KONTROLA
-		$ctrl = new app\controllers\CalcCtrl();
-		$ctrl->generateView ();
-	break;
-	case 'login': // akcja PUBLICZNA - brak check.php
-		$ctrl = new app\controllers\LoginCtrl();
-		$ctrl->doLogin();
-	break;
-	case 'calcCompute' : // akcja NIEPUBLICZNA
-		include 'check.php';  // KONTROLA
-		$ctrl = new app\controllers\CalcCtrl();
-		$ctrl->process ();
-	break;
-	case 'logout' : // akcja NIEPUBLICZNA
-		include 'check.php';  // KONTROLA
-		$ctrl = new app\controllers\LoginCtrl();
-		$ctrl->doLogout();
-	break;
-	case 'action1' : // akcja PUBLICZNA - brak check.php
-		// zrób coś innego publicznego ...
-		print('reakcja na akcję publiczną ....');
-	break;
-	case 'action2': // akcja NIEPUBLICZNA
-		include 'check.php';  // KONTROLA
-		// zrób coś innego wymagającego logowania ...
-		print('reakcja na akcję niepubliczną ....');
-	break;
+	default :
+		control('app\\controllers', 'CalcCtrl',		'generateView', ['user','admin']);
+	case 'login':
+		control('app\\controllers', 'LoginCtrl',	'doLogin');
+	case 'calcCompute' :
+		//zamiast pierwszego parametru można podać null lub '' wtedy zostanie przyjęta domyślna przestrzeń nazw dla kontrolerów
+		control(null, 'CalcCtrl',	'process',		['user','admin']);
+	case 'logout' :
+		control(null, 'LoginCtrl',	'doLogout',		['user','admin']);
 }

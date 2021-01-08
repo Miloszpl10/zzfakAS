@@ -1,22 +1,20 @@
 <?php
 require_once 'init.php';
-// Skrypt kontrolera głównego uruchamiający określoną
-// akcję użytkownika na podstawie przekazanego parametru
+// Rozszerzenia:
+// Dodanie klasy Router oraz Route, które realizują idee przedstawione poprzednio, ale na wyższym poziomie i obiektowo.
+// Po pierwsze rezygnujemy ze struktury 'switch' w kontrolerze głównym i zastępujemy ją tablicą ścieżek przechowywaną
+// wewnątrz obiektu routera. Router powstaje w skrypcie init.php i jak inne ważne obekty jest dostępny przez getRouter().
 
-//każdy punkt wejścia aplikacji (skrypt uruchamiany bezpośrednio przez klienta) musi dołączać konfigurację
-//1. pobierz nazwę akcji
+// Odpowiednio nazwane metody routera realizują wszystkie zadania iplementowane uprzednio w funkcji control oraz strukturze 'switch'.
 
-//2. wykonanie akcji
-getConf()->login_action = 'login'; //określenie akcji logowania - robimy to w tym miejscu, ponieważ tu są zdefiniowane wszystkie akcje
+// Oczywiście tym samym znika funkcja 'control' - jest ona prywatną metodą routera.
 
-switch ($action) {
-	default :
-		control('app\\controllers', 'CalcCtrl',		'generateView', ['user','admin']);
-	case 'login':
-		control('app\\controllers', 'LoginCtrl',	'doLogin');
-	case 'calcCompute' :
-		//zamiast pierwszego parametru można podać null lub '' wtedy zostanie przyjęta domyślna przestrzeń nazw dla kontrolerów
-		control(null, 'CalcCtrl',	'process',		['user','admin']);
-	case 'logout' :
-		control(null, 'LoginCtrl',	'doLogout',		['user','admin']);
-}
+getRouter()->setDefaultRoute('calcShow'); // akcja/ścieżka domyślna
+getRouter()->setLoginRoute('login'); // akcja/ścieżka na potrzeby logowania (przekierowanie, gdy nie ma dostępu)
+
+getRouter()->addRoute('calcShow',    'CalcCtrl',  ['user','admin']);
+getRouter()->addRoute('calcCompute', 'CalcCtrl',  ['user','admin']);
+getRouter()->addRoute('login',       'LoginCtrl');
+getRouter()->addRoute('logout',      'LoginCtrl', ['user','admin']);
+
+getRouter()->go(); //wybiera i uruchamia odpowiednią ścieżkę na podstawie parametru 'action';

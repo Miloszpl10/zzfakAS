@@ -75,9 +75,9 @@ class CalcCtrl {
 	/** 
 	 * Pobranie wartości, walidacja, obliczenie i wyświetlenie
 	 */
-	public function process(){
+	public function action_calcCompute(){
 
-		$this->getparams();
+		$this->getParams();
 		
 		if ($this->validate()) {
 				
@@ -85,20 +85,25 @@ class CalcCtrl {
 			$this->form->x = intval($this->form->x);
 			$this->form->y = intval($this->form->y);
 			$this->form->percent = intval($this->form->percent);
-			$this->msgs->addInfo('Parametry poprawne.');
+			getMessages()->addInfo('Parametry poprawne.');
 			
 			//wykonanie operacji
 			$months = $this->form->y * 12;
   			$installment = $this->form->x / $months;
 			$this->result->result = ($installment * ($this->form->percent / 100)) + $installment;
 
-			
+
 			$this->msgs->addInfo('Wykonano obliczenia.');
 		}
 		
 		$this->generateView();
 	}
-	
+
+
+    	public function action_calcShow(){
+    		getMessages()->addInfo('Witaj w kalkulatorze');
+    		$this->generateView();
+    	}
 	
 	/**
 	 * Wygenerowanie widoku
@@ -111,7 +116,7 @@ class CalcCtrl {
 
 		getSmarty()->assign('form',$this->form);
 		getSmarty()->assign('res',$this->result);
-		
+
 		getSmarty()->display('CalcView.tpl');
 	}
 }

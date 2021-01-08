@@ -55,3 +55,7 @@ git log e2baada
 Version 7.3 nr 7b,
 Ochrona zasobów zautomatyzowane
 git log 304e6d5
+
+Version 7.6 nr 7c,
+Routing
+git log 

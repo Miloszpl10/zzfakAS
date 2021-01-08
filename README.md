@@ -50,4 +50,4 @@ git log 1f82522
 
 Version 7.0 nr 7,
 Ochrona zasobów
-git log 
+git log e2baada
